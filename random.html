@@ -46,8 +46,9 @@
                            }),
                            function(i,v){
                             $("pre").append(v)
-                            hljs.highlightBlock(v);
-                           })
+                           });
+                    $('pre code').each(function(i, e) {hljs.highlightBlock(e, '    ')});
+
                 },"text");
 
             //calcular el resultado y mostrarlo:
