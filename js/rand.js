@@ -5,8 +5,10 @@ String.prototype.toTitleCase = function(){
     }).join(" ");
 }
 
-//en javascript NO existen clases, sólo funciones; pero una función puede tener datos miembro y "construirse"
-//aquí estoy creando un tipo y AL MISMO TIEMPO una nueva instancia de éste. Los datos miembro son lo que retorna.
+//en javascript NO existen clases, sólo funciones; 
+//pero una función puede tener datos miembro y "construirse"
+//aquí estoy creando un tipo y AL MISMO TIEMPO una nueva instancia de éste.
+//Los datos miembro son lo que retorna.
 //ver el "module pattern" (http://www.yuiblog.com/blog/2007/06/12/module-pattern/)
 randomizer = new function(){
 
