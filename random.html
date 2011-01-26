@@ -41,7 +41,7 @@
             $('pre').each(function(i, e) {hljs.highlightBlock(e)}); 
 
             //cargar el código fuente:
-            $.get("/js/rand.js", {},
+            $.get("/progra2/js/rand.js", {},
                 function(data){
                     $("#original-code pre").text(data);
                 },"text");
