@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>lfborjas/progra2 @ GitHub</title>
+	
+	<style type="text/css">
+		body {
+  		margin-top: 1.0em;
+        background-color: #fafafa;
+		font-family: "Trebuchet MS", Helvetica, sans-serif;
+  		color: #444;
+    }
+    #container {
+      margin: 0 auto;
+      width: 700px;
+    }
+		h1 { font-size: 3.8em; color: #0d0603; margin-bottom: 3px; }
+		h1 .small { font-size: 0.4em; }
+		h1 a { text-decoration: none }
+		h2 { font-size: 1.5em; color: #0d0603; }
+    h3 { text-align: center; color: #0d0603; }
+    a { color: #0d0603; }
+    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
+    .download { float: right; }
+		pre { background: #000; color: #fff; padding: 15px;}
+    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
+    .footer { text-align:center; padding-top:30px; font-style: italic; }
+</style>
+    <link rel="stylesheet" href="http://yandex.st/highlightjs/5.16/styles/github.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script src="http://yandex.st/highlightjs/5.16/highlight.min.js"></script>	
+    <script type="text/javascript" charset="utf-8" src="./js/rand.js"></script>
+        
+    <script type="text/javascript">
+        $(function(){
+            //cargar el paquete de coloreo de sintaxis:
+            $('pre').each(function(i, e) {hljs.highlightBlock(e)}); 
+
+            //cargar el código fuente:
+            $.get("/js/rand.js", {},
+                function(data){
+                    $("#original-code pre").text(data);
+                },"text");
+
+            //calcular el resultado y mostrarlo:
+            $("#student").text(randomizer.getRandomStudent());
+        });
+    </script>
+</head>
+
+<body>
+  <div id="container">
+      <div id="winner">
+          Y el ganador es <span id="student"></span>
+      </div>
+      El código usado para calcular un ganador cada vez que se carga la página es este:
+      <div id="playground">
+          <div id="original-code">
+              <pre>
+              </pre>
+          </div>
+      </div>
+  </div>
+</body>
+</html>
