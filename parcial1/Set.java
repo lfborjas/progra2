@@ -68,12 +68,6 @@ public class Set<E> {
     }
 
     public boolean isSubset(Set<E> otro){
-        if(otro == null)
-            return false;
-        /*if(! (otro instanceof E.class))
-            return false;*/
-        if(otro == this)
-            return true;
         for(E a : this.indicator.keySet())
             if(!otro.contains(a))
                 return false;
