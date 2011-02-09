@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>lfborjas/progra2 @ GitHub</title>
+	
+	<style type="text/css">
+		body {
+  		margin-top: 1.0em;
+        background-color: #fafafa;
+		font-family: "Trebuchet MS", Helvetica, sans-serif;
+  		color: #444;
+    }
+    #container {
+      margin: 0 auto;
+      width: 700px;
+    }
+		h1 { font-size: 3.8em; color: #0d0603; margin-bottom: 3px; }
+		h1 .small { font-size: 0.4em; }
+		h1 a { text-decoration: none }
+		h2 { font-size: 1.5em; color: #0d0603; }
+    h3 { text-align: center; color: #0d0603; }
+    a { color: #0d0603; }
+    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
+    .download { float: right; }
+    #student{
+        background-color: #FFF666;
+        font-size: xx-large;
+        font-weight: bold;
+        display: block;
+    }
+    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
+    .footer { text-align:center; padding-top:30px; font-style: italic; }
+</style>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script> -->
+    <script src="./js/dinos.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <h1>Parque javásico</h1>
+        <div id="park">
+            
+        </div>
+      <div id="rules">
+
+          <h2>Reglas del simulador jurásico</h2>
+          <ol>
+            <li>Se deberá cargar un ecosistema aleatorio con [2,10] seres vivos de cualquier tipo</li>
+            <li>Todo ser vivo tiene <em>masa</em>:</li>
+            <li>Todos los tipos de dinosaurios saben <em>cazar</em> y <em>comer</em></li>
+            <li>Al comerse un ser vivo, este es removido del ecosistema</li>
+            <li>Para cazar,
+                <em>todos </em>los dinosaurios carnívoros buscan otro dinosaurio en el ecosistema luego tratan de comérselo y 
+                <em>todos</em>los herbívoros, una planta y se la comen</li>
+            <li>Cada tipo de dinosaurio come de distinta manera: los T-Rex incrementan su masa linealmente, los brontosaurios, geométricamente (la mitad de la masa de su alimento) y los velociraptors cuadráticamente</li>
+          </ol>
+      </div>
+  </div>
+</body>
+</html>
