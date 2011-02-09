@@ -147,7 +147,7 @@ var Dromiceiomimus = Herbivore.extend({
 $(function(){
     ecosystem = [];
     classes = [TRex, Utahraptor, Dromiceiomimus, Plant];
-    for(var i=0;i<10;i++){
+    for(var i=0;i<Math.floor(Math.random()*9)+2;i++){
         e = new classes[Math.floor(Math.random()*4)](Math.floor(Math.random()*30));
         if(e['hunt'] !== undefined)
             e.hunt = e.hunt.partial(ecosystem);
