@@ -34,8 +34,30 @@
     }
     hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
     .footer { text-align:center; padding-top:30px; font-style: italic; }
+     div#park { font-size: 14px }
+      div#park div.jquery-console-inner 
+       { width:900px; height:200px; background:#333; padding:0.5em;
+         overflow:auto }
+      div#park div.jquery-console-prompt-box
+       { color:#fff; font-family:monospace; }
+      div#park div.jquery-console-focus span.jquery-console-cursor 
+       { background:#fefefe; color:#333; font-weight:bold }
+      div#park div.jquery-console-message-error
+       { color:#ef0505; font-family:sans-serif; font-weight:bold;
+         padding:0.1em; }
+      div#park div.jquery-console-message-value , 
+       { color:red font-family:monospace;
+         padding:0.1em; }
+      div#park div.feedback, .jquery-console-welcome
+       { color:#1ad027; font-family:monospace;
+         padding:0.1em; }
+      .menu{
+        color:#fafafa; font-family:monospace;
+      }
+      div#park span.jquery-console-prompt-label { font-weight:bold }
 </style>
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script> -->
+    <script type="text/javascript" src="./js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="./js/jquery.console.js"></script>
     <script src="./js/dinos.js"></script>
 </head>
 

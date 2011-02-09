@@ -90,6 +90,16 @@ var LivingBeing = Class.extend({
     inspect: function(){
                 return this.name+", de "+this.mass+" libras";
              }
+    /*draw: function(canvas){
+            images = {'Dromiceiomimus': "./images/dromi.png",
+                      'Plant': "./images/fern.gif",
+                      'TRex': "./images/trex.png",
+                      'Utahraptor': "./images/utah.png"
+                     };
+            if(images.hasOwnProperty(this.name))
+                canvas.image(images[this.name], )
+
+          }*/
 });
 
 var Dinosaur = LivingBeing.extend({
@@ -133,13 +143,54 @@ var Dromiceiomimus = Herbivore.extend({
     init: function(m){this._super(m, "Dromiceiomimus", function(b,o){return b+o.mass/2;});}
 });
 
-ecosystem = [];
-classes = [TRex, Utahraptor, Dromiceiomimus, Plant];
-for(var i=0;i<10;i++){
-    e = new classes[Math.floor(Math.random()*4)](Math.floor(Math.random()*30));
-    if(e['hunt'] !== undefined)
-        e.hunt = e.hunt.partial(ecosystem);
-    if(e['eat'] !== undefined)
-        e.eat = e.eat.partial(ecosystem, undefined);
-    ecosystem.push(e);
-}
+
+$(function(){
+    ecosystem = [];
+    classes = [TRex, Utahraptor, Dromiceiomimus, Plant];
+    for(var i=0;i<10;i++){
+        e = new classes[Math.floor(Math.random()*4)](Math.floor(Math.random()*30));
+        if(e['hunt'] !== undefined)
+            e.hunt = e.hunt.partial(ecosystem);
+        if(e['eat'] !== undefined)
+            e.eat = e.eat.partial(ecosystem, undefined);
+        /*if(e['draw'] !== undefined){
+            e.draw = e.draw.partial(canvas);
+            e.draw();
+        }*/
+        ecosystem.push(e);
+    }
+
+     var console1 = $('<div class="console1"></div>');
+     $('#park').append(console1);
+     var menu = function(){
+        var s="";
+        for(var i=0;i<ecosystem.length;i++)
+            s+=i+". "+ecosystem[i].inspect()+"\n";
+        return s;
+     }
+     var controller1 = console1.console({
+         promptLabel: "Elegí un ser vivo por número>",
+         welcomeMessage: "Simulador de parque javásico\n"+menu(),
+         commandValidate: function(line){
+            return !isNaN(n = new Number(line)) && n>=0 && n<ecosystem.length;
+         },
+         commandHandle: function(line){
+            var n = new Number(line);
+            var creature = ecosystem[n];
+            if(!creature.hasOwnProperty('hunt'))
+                return [{msg: "Las plantas no cazan", className: "feedback"}, {msg: menu(), className: "menu"}];
+            if(food = creature.hunt()){
+                creature.eat(food);
+                return [{msg: creature.name+" comió "+food.name, className: "feedback"}, {msg: menu(), className: "menu"}];
+            }else{
+                return [{msg: creature.name+" no tiene nada para comer  ", className: "feedback"}, {msg: menu(), className: "menu"}];
+            }
+            
+            
+         },
+       autofocus:true,
+       animateScroll:true,
+       promptHistory:true,
+     });
+
+});
