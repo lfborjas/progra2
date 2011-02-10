@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 import java.lang.reflect.InvocationTargetException;
 import java.util.InputMismatchException;
@@ -20,6 +21,12 @@ public class Main{
         ArrayList ecosistema = new ArrayList();
         llenarEcosistema(ecosistema);
         Scanner in = new Scanner(System.in);
+
+        //lo de ordenar:
+        System.out.printf("El ecosistema desordenado: %s\n", ecosistema);
+        Collections.sort(ecosistema);
+        System.out.printf("El ecosistema ordenado: %s\n", ecosistema);
+
         Object o; //estoy usando la super super clase...
         int opt;
         do{

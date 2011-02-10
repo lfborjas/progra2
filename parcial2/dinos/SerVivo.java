@@ -29,6 +29,6 @@ public abstract class SerVivo implements Pesable, Comparable{
      en tiempo de ejecución; por polimorfismo el método getClass() obtendrá la clase adecuada*/
     @Override
     public String toString(){
-        return String.format("Esto es un %s y  pesa %.2f", this.getClass().getSimpleName(), peso);
+        return String.format("%s , peso:%.2f", this.getClass().getSimpleName(), peso);
     }
 }
