@@ -1,14 +1,19 @@
 public class Carro implements Pesable, Comparable{
-    protected double masa;
+    protected double masa_chasis;
+    protected double masa_llantas;
+
+    //constante de clase
+    public static final int NO_LLANTAS = 4;
 
     public Carro(double m){
-        masa = m;
+        masa_chasis = m;
+        masa_llantas = m/8;
     }
 
     /**Método que la interfaz Pesable hace implementar*/
     public double getPeso(){
         /*Fuerza = Peso = masa * aceleración */
-        return this.masa * Pesable.GRAVEDAD;
+        return (this.masa_chasis + this.masa_llantas*NO_LLANTAS) * Pesable.GRAVEDAD;
     }
     
     /**Método que la interfaz Comparable hace implementar

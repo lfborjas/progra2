@@ -5,6 +5,6 @@ public abstract class Dinosaurio extends SerVivo{
         super(peso);
     }
     
-    public abstract SerVivo conseguirAlimento(ArrayList<SerVivo> ecosistema) throws OutOfFoodException;
+    public abstract SerVivo conseguirAlimento(ArrayList<SerVivo> ecosistema);
     public abstract void comer(SerVivo alimento);
 }

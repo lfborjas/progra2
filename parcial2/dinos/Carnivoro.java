@@ -5,7 +5,7 @@ public abstract class Carnivoro extends Dinosaurio{
     }
     
     /*Aquí hay un tipo de retorno covariante: el padre retornaba SerVivo, el hijo retorna Dinosaurio*/
-    public final Dinosaurio conseguirAlimento(ArrayList<SerVivo> ecosistema) throws OutOfFoodException{
+    public final Dinosaurio conseguirAlimento(ArrayList<SerVivo> ecosistema){
         for(SerVivo lo : ecosistema){
            //no se come a sí mismo!
            if(lo instanceof Dinosaurio && lo != this){
@@ -13,7 +13,6 @@ public abstract class Carnivoro extends Dinosaurio{
                return (Dinosaurio)lo;
            }
         }
-        //return null;
-        throw new OutOfFoodException("¡Ya no hay dinosaurios!");
+        return null;
     }
 }

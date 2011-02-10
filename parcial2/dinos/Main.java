@@ -3,6 +3,7 @@ import java.util.Random;
 import java.lang.reflect.InvocationTargetException;
 import java.util.InputMismatchException;
 import javax.swing.JOptionPane;
+import java.util.Scanner;
 /*Using reflection: cf: http://download.oracle.com/javase/1.5.0/docs/guide/language/autoboxing.html
 http://download.oracle.com/javase/1.5.0/docs/guide/language/varargs.html*/
 public class Main{
@@ -15,47 +16,34 @@ public class Main{
     }
 
     public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, InvocationTargetException{
-        ArrayList<SerVivo> ecosistema = new ArrayList();
+
+        ArrayList ecosistema = new ArrayList();
         llenarEcosistema(ecosistema);
-        Object o=null;
+        Scanner in = new Scanner(System.in);
+        Object o; //estoy usando la super super clase...
         int opt;
         do{
-            JOptionPane.showMessageDialog(null, String.format("El ecosistema es: %s", ecosistema));
-            do{
-                try{
-                    opt = Integer.parseInt(
-                            JOptionPane.showInputDialog(
-                                String.format("Elija un ser para simular (entre 0 y %d)", ecosistema.size()))); 
-                    if(opt == -1) break;
-                    o = ecosistema.get(opt);
-                    break; //no llegará acá a menos que no haya excepciones
-                }catch(IndexOutOfBoundsException iobex){
-                    JOptionPane.showMessageDialog(null, String.format("El número debe estar entre 0 y %d", ecosistema.size()));
-                }catch(NumberFormatException nfex){
-                    JOptionPane.showMessageDialog(null,
-                            String.format("Debe ingresar un número en el rango [0, %d], no una letra\n", ecosistema.size()));
-                }
-            }while(true);
+            System.out.printf("El ecosistema es: %s\n", ecosistema);
+            System.out.printf("Elija un elemento (-1 para dejar de simular)");
+            opt = in.nextInt();
             if(opt == -1)
                 break;
+            o = ecosistema.get(opt);
             if(o instanceof Dinosaurio){
                 Dinosaurio real = (Dinosaurio)o;
-                JOptionPane.showMessageDialog(null,"Encontramos un dinosaurio"+real);
-                SerVivo comida; 
-                try{
-                    comida = real.conseguirAlimento(ecosistema);
+                System.out.printf("Encontramos un dinosaurio: %s \n", real);
+                SerVivo comida =  real.conseguirAlimento(ecosistema);
+                if(comida != null){
                     real.comer(comida);
-                    JOptionPane.showMessageDialog(null, "Ya comió"+real);
-                }catch(OutOfFoodException ouex){
+                    System.out.printf("Ya comió el dinosaurio: %s \n", real);
+                }else{
                     ecosistema.remove(o);
-                    JOptionPane.showMessageDialog(null, "Murió "+real+" porque "+ouex.getMessage());
-                }finally{
-                    JOptionPane.showMessageDialog(null, "Terminada iteración");
+                    System.out.printf("Ya murió el dinosaurio: %s \n", real);
                 }
             }else{
-                JOptionPane.showMessageDialog(null, o+": no un dinosaurio");
+               System.out.printf("%s no es un dinosaurio\n", o);
             }
         }while(true);
-        
+ 
     }
 }
