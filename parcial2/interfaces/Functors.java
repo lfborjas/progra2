@@ -1,10 +1,7 @@
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Arrays;
-interface Processor{
-    Object apply(Object x);
+import java.util.List;import java.util.ArrayList;import java.util.Arrays;
+interface Processor<T>{
+    T apply(T x);
 }
-
 interface NamedProcessor extends Processor{
     String name();
 }
@@ -34,9 +31,9 @@ class UpCaser implements NamedProcessor, Conditional{
     }
 }
 
-class Alphanumerical implements Processor, Conditional{
-    public String apply(Object x){
-        return ((String)x).replaceAll("\\W", "");
+class Alphanumerical implements Processor<String>, Conditional{
+    public String apply(String x){
+        return x.replaceAll("\\W", "");
     }
 
     public boolean predicate(Object x){
@@ -93,6 +90,8 @@ public class Functors{
     {
         System.out.printf("Usando map: %s\n", 
                           map(new Alphanumerical(), new ArrayList(Arrays.asList(new String[]{"hola734!", "MUNDO"}))));
-        //System.out.printf("Usando filter: %s\n", filter(new Even(), new A));
+        System.out.println(map(new Processor<Integer>(){
+            public Integer apply(Integer x){return x*x;}
+        }, new ArrayList(Arrays.asList(new Integer[]{1,2,3,4,5}))));
     }
 }
