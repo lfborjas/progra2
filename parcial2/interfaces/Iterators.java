@@ -26,7 +26,7 @@ class StringBag implements Iterable<String>, Iterator<String>{
         return this;
     }
 
-    public void remove(){}
+    public void remove(){throw new UnsupportedOperationException("Me doy pereza programarlo");}
 }
 
 public class Iterators{
