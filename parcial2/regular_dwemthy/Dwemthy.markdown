@@ -1,0 +1,1 @@
+Una versión más interesante está acá: <https://gist.github.com/674734>
