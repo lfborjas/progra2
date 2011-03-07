@@ -3,7 +3,7 @@ body{
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 }    
 
-.header{
+h2, h3 {
     border-bottom: 1px dotted #555;
 }
 
