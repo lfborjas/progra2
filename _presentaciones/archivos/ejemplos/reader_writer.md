@@ -2,7 +2,7 @@
 #Un ejemplo de I/O
 
 !SLIDE smbullets
-#Lectura de caracteres
+##Lectura de caracteres
 
 * Leamos un caracter
   por vez en un flujo de bytes: **es secuencial**
@@ -28,7 +28,7 @@
 
 
 !SLIDE bullets
-#Escritura de caracteres
+##Escritura de caracteres
 
 * Escribimos un caracter por pasada.
 * Lo mismo que antes podría salir mal. 
@@ -49,7 +49,7 @@
 
 
 !SLIDE bullets
-#Interacción mediante la línea de comandos
+##Interacción mediante la línea de comandos
 
 * Cuando ejecutamos un programa, con la forma `java ClaseConMain`, lo que viene después
   son los "parámetros" del programa.
@@ -78,4 +78,16 @@
                 break;
         }
     }
+
+!SLIDE bullets 
+##El acertijo
+
+* El archivo con el acertijo tiene todos los caracteres 
+  *movidos trece lugares a la derecha*. Pero, ojo, 
+  sólo los caracteres que son *letras* están movidos
+  esa cantidad de lugares, los otros están como deberían estar.
+* Tu misión: modificar el método de lectura para que "decodifique" el archivo, 
+  y el de escritura, para que escriba "acertijos".
+
+
 
