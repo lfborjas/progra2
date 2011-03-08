@@ -2,9 +2,18 @@ import java.io.*;
 import java.util.TreeMap;
 import java.util.Map;
 
+class CountMap<K, V> extends TreeMap{
+    public void putOrIncrement(K key){
+        if(get(key) == null)
+            put(key, 1);
+        else
+            put(key, (Integer)get(key)+1);
+    }
+}
+
 public class Frecuencias{
     public static void plotChars(String origin) throws Exception{
-        TreeMap<Character, Integer> tabla = new TreeMap<Character, Integer>();
+        CountMap<Character, Integer> tabla = new CountMap<Character, Integer>();
            
         //abrir el archivo, podría no encontrarlo
         FileReader in = new FileReader(origin);
@@ -14,11 +23,7 @@ public class Frecuencias{
         while( (c = in.read() ) != -1){
             if((c >= 'A' && c <= 'Z' ) || (c >= 'a' && c <= 'z')){
                 char leChar = Character.toLowerCase((char)c);
-                if(tabla.get(leChar) != null){
-                    tabla.put(leChar, tabla.get(leChar)+1);
-                }else{
-                    tabla.put(leChar, 1);
-                }
+                tabla.putOrIncrement(leChar);
             }
         }
         //siempre cerrar ! Si no, el flujo se corrompe
@@ -38,18 +43,14 @@ public class Frecuencias{
     }
 
     public static void plotWords(String origin) throws Exception{
-        TreeMap<String, Integer> tabla = new TreeMap<String, Integer>();
+        CountMap<String, Integer> tabla = new CountMap<String, Integer>();
         
         BufferedReader in = new BufferedReader(new FileReader(origin));
         String line = "";
         //leer hasta consumir el flujo
         while( (line = in.readLine() ) != null){
             for(String word : line.split("\\W+")){
-                if(tabla.get(word) != null){
-                    tabla.put(word, tabla.get(word)+1);
-                }else{
-                    tabla.put(word, 1);
-                }
+                tabla.putOrIncrement(word.toLowerCase());
             }
         }
         //siempre cerrar ! Si no, el flujo se corrompe
