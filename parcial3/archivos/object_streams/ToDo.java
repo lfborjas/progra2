@@ -76,7 +76,7 @@ public class ToDo{
     public static void main (String [] args)
     {
         Scanner s = new Scanner(System.in);
-        s.useDelimiter("\n");
+        s.useDelimiter("\n|\n\r|\r");
         if(!leerTareas()){
             System.out.print("¿Cómo te llamás? > ");
             usuarioActual = s.next(); 
