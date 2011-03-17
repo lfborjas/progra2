@@ -5,6 +5,14 @@
 
 !SLIDE bullets
 
+##Si no tenés python
+
+* Acá hay un [intérprete](http://shell.appspot.com/)
+* Y acá un lugar donde [escribir y ver ejecutado código](http://codepad.org/)
+
+
+!SLIDE bullets
+
 #¿De qué hay que hablar?
 
 * Cómo ejecutar programas
