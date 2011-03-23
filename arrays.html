@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Arreglos en java</title>
+
+  <link rel="stylesheet" href="./css/reset.css" type="text/css"/>
+  <link rel="stylesheet" href="./css/style.css" type="text/css"/>
+  <link rel="stylesheet" href="./css/showoff.css" type="text/css"/>
+
+  <script type="text/javascript" src="./js/jquery-1.4.2.min.js"></script>
+  <script type="text/javascript" src="./js/jquery.cycle.all.js"></script>
+	<script type="text/javascript" src="./js/jquery-print.js"></script>
+  <script type="text/javascript" src="./js/jquery.batchImageLoad.js"></script>
+
+  <script type="text/javascript" src="./js/jquery.doubletap-0.1.js"></script>
+
+  <script type="text/javascript" src="./js/fg.menu.js"></script>
+  <script type="text/javascript" src="./js/showoff.js"></script>
+  <script type="text/javascript" src="./js/jTypeWriter.js"> </script>
+  <script type="text/javascript" src="./js/sh_main.min.js"></script>
+  <script type="text/javascript" src="./js/core.js"></script>
+  <script type="text/javascript" src="./js/showoffcore.js"></script>
+
+  <link type="text/css" href="./css/fg.menu.css" media="screen" rel="stylesheet" />
+  <link type="text/css" href="./css/theme/ui.all.css" media="screen" rel="stylesheet" />
+  <link type="text/css" href="./css/sh_style.css" rel="stylesheet" >
+
+  
+
+  
+
+  <script type="text/javascript">
+  $(function(){
+    setupPreso(false, './');
+  });
+  </script>
+</head>
+
+<body>
+
+
+<a tabindex="0" href="#search-engines" class="fg-button fg-button-icon-right ui-widget ui-state-default ui-corner-all" id="navmenu"><span class="ui-icon ui-icon-triangle-1-s"></span>slides</a>
+<div id="navigation" class="hidden"></div>
+
+<div id="help">
+  <table>
+    <tr><td class="key">space, &rarr;</td><td>next slide</td></tr>
+    <tr><td class="key">&larr;</td><td>previous slide</td></tr>
+    <tr><td class="key">d</td><td>debug mode</td></tr>
+    <tr><td class="key">## &lt;ret&gt;</td><td>go to slide #</td></tr>
+    <tr><td class="key">c</td><td>table of contents (vi)</td></tr>
+    <tr><td class="key">f</td><td>toggle footer</td></tr>
+    <tr><td class="key">r</td><td>reload slides</td></tr>
+    <tr><td class="key">z</td><td>toggle help (this)</td></tr>
+  </table>
+</div>
+
+<div id="preso">loading presentation...</div>
+<div id="footer">
+  <span id="slideInfo"></span>
+  <span id="debugInfo"></span>
+</div>
+
+<div id="slides" class="offscreen" style="display:none;">
+<div class="slide" data-transition="none"><div class="content" ref="intro/overview/1">
+<h1>Arreglos en java</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets incremental" ref="intro/overview/2">
+<h2>&#xBF;Qu&#xE9; es un arreglo?</h2>
+
+<ul>
+<li>Un contenedor <em>homog&#xE9;neo</em> de
+tama&#xF1;o <em>fijo</em>.</li>
+<li>Tiene elementos</li>
+<li>Cada elemento tiene un &#xED;ndice</li>
+<li>Empiezan en <em>cero</em></li>
+<li>Si tiene tama&#xF1;o N, los &#xED;ndices est&#xE1;n de <em>0 a N-1</em></li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/overview/3">
+<img src="http://download.oracle.com/javase/tutorial/figures/java/objects-tenElementArray.gif"></img>
+</div>
+</div><div class="slide" data-transition="none"><div class="content code small" ref="intro/overview/4">
+<pre class="sh_java"><code>class Arreglos{
+    public static void main(String[] args){
+        int[] unArreglo; //declaraci&#xF3;n
+        int otroArreglo[]; //otra declaraci&#xF3;n
+
+        unArreglo = new int[3]; //inicializaci&#xF3;n
+                                 // y asignaci&#xF3;n
+        unArreglo[0] = 100;
+        unArreglo[1] = 225;
+        unArreglo[2] = 367;
+
+        System.out.println(unArreglo[2]);
+
+        //tambi&#xE9;n podemos asignar los elementos al crear:
+        double[] tercerArreglo = {3.1416, 2.712, 1.416};
+
+        System.out.println(unArreglo.length);
+        System.out.println(tercerArreglo.length);
+    }
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="intro/overview/5">
+<h2>Arreglos en java</h2>
+
+<ul>
+<li>Se declaran con corchetes despu&#xE9;s del tipo o del nombre.</li>
+<li>Se <em>deben</em> inicializar con un tama&#xF1;o <em>entero</em>.</li>
+<li>S&#xF3;lo pueden tener elementos del <em>mismo</em> tipo.</li>
+<li>Para acceder a un elemento, el &#xED;ndice va entre corchetes.</li>
+<li>Los arreglos cuentan con la propiedad <code>length</code>.</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/overview/6">
+<h1>&#xBF;Qu&#xE9; est&#xE1; mal en el siguiente c&#xF3;digo?</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content code" ref="intro/overview/7">
+<pre class="sh_java"><code>int[] arreglo1;
+arreglo1[0] = 999;
+
+double arreglo2[] = new double[2];
+arreglo2[3] = 5.6;
+arreglo2[-1] = 4.44;
+arreglo2[0] = "hola";
+
+String[] arreglo3 = new int[5];
+
+char[] arreglo4 = {4.5, 6.7, 0.25};</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="intro/overview/8">
+<h2>Ejercicios:</h2>
+
+<ul>
+<li>Imprimir todos los elementos de un arreglo</li>
+<li>Encontrar promedio y los elementos m&#xE1;ximo y m&#xED;nimo de un arreglo de n&#xFA;meros reales</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="intro/overview/9">
+<h2>Algoritmos &#xFA;tiles</h2>
+
+<ul>
+<li>Recorrer un arreglo</li>
+<li>Intercambiar elementos</li>
+<li>Desordenar un arreglo</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content code" ref="intro/overview/10">
+<pre class="sh_java"><code>int[] a = {1,2,3,4,5};
+for(int i = 0; i&lt; a.length; i++)
+    System.out.println(a[i]);</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content code" ref="intro/overview/11">
+<pre class="sh_java"><code>int[] b = {1,2,3,4,5};
+int temporal = b[1];
+b[1] = b[2];
+b[2] = temporal;</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content code" ref="intro/overview/12">
+<pre class="sh_java"><code>int[] c = {1,2,3,4,5};
+for(int i = 0; i &lt; a.length; i++){
+    int r = i + (int)(Math.random() * (N-i));
+    int t = c[r];
+    c[r] = c[i];
+    c[i] = t;
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/overview/13">
+<h1>Arreglos multi-dimensionales</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content code" ref="intro/overview/14">
+<pre class="sh_java"><code>class Arreglos2{
+    int[][] matrix = {
+        {1,2,3},
+        {4,5,6},
+        {7,8,9}
+    };
+
+    double[][] coordenadas = new double[2][2];
+    coordenadas[0][0] = 1;
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="intro/overview/15">
+<h2>Ejercicios</h2>
+
+<ul>
+<li>Imprimir todos los elementos de un arreglo bidimensional, con fila y columna</li>
+<li>Imprimir los elementos en la <em>diagonal</em> de un arreglo bidimensional</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="intro/overview/16">
+<h2>Recordar que</h2>
+
+<ul>
+<li>Los arreglos no pueden cambiar de tama&#xF1;o, una vez establecido</li>
+<li>Deben inicializarse antes de ser usados</li>
+<li>&#xCD;ndices negativos o muy grandes causan errores</li>
+<li>Comienzan en el &#xED;ndice 0 y terminan en <code>length-1</code></li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content smbullets" ref="intro/overview/17">
+<h2>M&#xE1;s ejercicios</h2>
+
+<ul>
+<li>Calcular el producto punto de dos arreglos</li>
+<li>Invertir un arreglo</li>
+<li>Encontrar la transpuesta de una matriz</li>
+<li>Encontrar la suma y el producto de una matriz</li>
+</ul>
+
+</div>
+</div>
+</div>
+
+</body>
+</html>

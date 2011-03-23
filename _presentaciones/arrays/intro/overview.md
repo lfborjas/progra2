@@ -81,9 +81,9 @@
 
 ##Algoritmos útiles
 
-1. Recorrer un arreglo
-2. Intercambiar elementos
-3. Desordenar un arreglo
+* Recorrer un arreglo
+* Intercambiar elementos
+* Desordenar un arreglo
 
 
 !SLIDE code
