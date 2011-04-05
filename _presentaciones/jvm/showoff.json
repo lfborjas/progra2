@@ -1,1 +1,1 @@
-{ "name": "Cómo funciona java", "sections": [ {"section":"vm"}, {"section":"args"}, {"section":"idioms"}]}
+{ "name": "Cómo funciona java", "sections": [ {"section":"setup"}, {"section":"vm"}, {"section":"args"}, {"section":"idioms"}]}
