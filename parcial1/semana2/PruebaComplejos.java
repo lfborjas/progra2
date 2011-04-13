@@ -1,30 +1,26 @@
-import rectangulares.Complejo;
+import polares.Complejo;
 
 public class PruebaComplejos{
     
-    public static void asegurar(boolean condicion, String mensajeError)
-    {
-        if(!condicion)
-            System.out.println(mensajeError);
-    }
-
     public static void main (String [] args)
     {
-        Complejo a, b;
+        Complejo a, b, z, w;
         a = Complejo.desdeRectangular(-3.5, 2);
         b = Complejo.desdeRectangular(1, 1);
 
-        asegurar(a.getReal() == -3.5, "La parte real de a no coincide");
-        asegurar(b.getReal() ==  1.0, "La parte real de b no coincide");
-        asegurar(a.getImag() ==  2.0, "La parte imaginaria de a no coincide");
-        asegurar(b.getImag() ==  1.0, "La parte imaginaria de b no coincide");
+        System.out.println(a.toString());
+        System.out.println(b); //el toString es llamado implícitamente por printf
 
-        asegurar(a.toString().equals("-3.5 + 2.0i"), "El toString de a está mal");
-        asegurar(b.toString().equals("1.0 + 1.0i"), "El toString de b está mal");
+        System.out.printf("Parte real de a: %.1f\n", a.getReal() );
+        System.out.printf("Parte real de b: %.1f\n", b.getReal() );
+        System.out.printf("Parte imaginaria de a: %.1f\n", a.getImag());
+        System.out.printf("Parte imaginaria de b: %.1f\n", b.getImag() );
 
-        asegurar(a.suma(b).toString().equals("-2.5 + 3.0i"), "No sirve la suma");
-
-        asegurar(a.producto(b).toString().equals("-5.5 + -1.5i"), "No sirve el producto");
+        z = a.suma(b);
+        System.out.printf("Suma de a y b: %s\n", z.toString());
+        
+        w = a.producto(b);
+        System.out.printf("Producto entre a y b: %s\n", w.toString());
 
 
     }
