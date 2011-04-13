@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"0>
+    <title>Números Complejos</title>
+    <link rel="stylesheet" href="/css/style.css" type="text/css" media="screen" charset="utf-8"0>  
+	<style type="text/css">
+            body {
+            margin-top: 1.0em;
+            background-color: #fafafa;
+            font-family: "Trebuchet MS", Helvetica, sans-serif;
+            color: #444;
+        }
+        body {
+          margin: 0 auto;
+          width: 700px;
+        }
+            h1 { font-size: 2.5em; color: #0d0603; margin-bottom: 3px; }
+            h1 .small { font-size: 0.4em; }
+            h1 a { text-decoration: none }
+            h2 { font-size: 1.5em; color: #0d0603; }
+        h3 { text-align: center; color: #0d0603; }
+        a { color: #0d0603; }
+    </style>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+          });
+      </script>
+    <script type="text/javascript"
+          src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+</head>
+<body>
+    <h1>Números complejos</h1>
+
+    <h2>Representación rectangular</h2>
+    Sean dos números complejos  $x$ e $y$ 
+    <em>representados como</em> $ x = a + b\imath $ y  $ y = c + d\imath $
+    de modo que $\Re(x) = a $ y $\Im(x) = b$ (es decir, el signo más y la letra i
+    son sólo parte de la representación, no operaciones que <em>haya</em> que realizar, 
+    las partes real e imaginaria están conceptualmente separadas.<br/>
+    Entonces, tenemos que:
+    <dl>
+        <dt>$x + y$ se define como<dt>
+        <dd>$(a+c) + (b+d)\imath$</dd>
+
+        <dt>$x - y$ se define como<dt>
+        <dd>$(a-c) + (b-d)\imath$</dd>
+
+        <dt>$x * y$ se define como<dt>
+        <dd>$(ac - bd) + (bc + ad)\imath$</dd>
+
+        <dt>$x / y$ se define como<dt>
+        <dd>$(\frac{ac + bd}{c^2+d^2}) + (\frac{bc-ad}{c^2+d^2})\imath$</dd>
+    </dl>
+
+    <h2>Representación polar</h2>
+    <p>Un número complejo se puede expresar como un vector en un plano donde el eje 
+    de las abscisas representa a los números reales y el de las ordenadas, a los imaginarios.
+    Un vector, por su parte, se puede representar mediante <em>coordenadas polares</em>:
+    su inclinación respecto a la horizontal (un ángulo) y su longitud (magnitud). Esto se ilustra en la
+    siguiente figura:
+    </p>
+    <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Complex_number_illustration_modarg.svg/220px-Complex_number_illustration_modarg.svg.png"/>
+    <p>De arriba podemos inferir, mediante identidades trigonométricas, que, para un complejo $z = x + y\imath$:</p>
+    <ul>
+        <li>$x = \Re(z)= r\cos{\varphi}$</li>
+        <li>$y = \Im(z) = r\sin{\varphi}$</li>
+        <li>$r = \sqrt{\Re(z)^2+\Im(z)^2} = \sqrt{x^2+y^2}$</li>
+        <li>$\varphi = \arctan{\frac{\Im(z)}{\Re(z)}} =  \arctan{\frac{y}{x}}$</li>
+    </ul>
+    
+    <p>Se sigue también que $z = x + y\imath = r\cos{\varphi} + r\sin{\varphi}\imath = r(\cos{\varphi}+ \imath\sin{\varphi})$</p>
+    <p>La principal ventaja de la representación polar, desde un punto de vista de implementación, es que la multiplicación y la división se vuelven más sencillas</p>
+    <p>Para $u = \alpha(\cos{\theta} + \sin{\theta})$ e $v = \beta(\cos{\vartheta} + \sin{\vartheta})$ </p>
+    <dl>
+        <dt>$u * v$ resulta en un complejo $z$ tal que</dt>
+        <dd>
+        Su magnitud es $\alpha\beta$ y su ángulo es $\theta+\vartheta$
+        (de modo que $z = \alpha\beta(\cos(\theta+\vartheta) + \sin(\theta+\vartheta))$
+        </dd>
+        <dt>$u / v$ resulta en un complejo $z$ tal que</dt>
+        <dd>
+        Su magnitud es $\alpha/\beta$ y su ángulo es $\theta-\vartheta$
+        (de modo que $z = \alpha/\beta(\cos(\theta-\vartheta) + \sin(\theta-\vartheta))$
+        </dd>
+    </dl>
+
+    <p>
+    Ahora bien, la suma se vuelve considerablemente más complicada (la demostración de ésta y la fórmula de
+       la resta se dejan como ejercicio al lector)
+       </p>
+       Se parte del hecho que $u + v = z$, y, si se recuerda la suma rectangular,
+       veremos que $\Re(u + v) = \Re(u) + \Re(v) = \alpha\cos{\theta} + \beta\cos{\vartheta} $
+       y que $\Im(u + v) = \Im(u) + \Im(v) = \alpha\sin{\theta} + \beta\sin{\vartheta} $
+       <br/>
+       Si, además, recordamos, de las identidades arriba mencionadas, que 
+       $\varphi = \arctan{\frac{\Im(z)}{\Re(z)}}$
+       <br/>
+       Podemos sustituir arriba y decir que 
+       $\varphi = \arctan{\frac{\alpha\sin{\theta} + \beta\sin{\vartheta}}{\alpha\cos{\theta} + \beta\cos{\vartheta} }}$
+       Y así obtenemos el ángulo de $z$, que es la suma de $u$ y $v$
+        <br/>
+        Para obtener la magnitud, y así terminar de definir el número, recordamos que $z = u+v$ y que 
+        $r = \sqrt{\Re(z)^2+\Im(z)^2}$
+        Así que podemos partir de la premisa antes mencionada y sustituir en la fórmula para la magnitud:
+        $r = \sqrt{(\alpha\cos{\theta} + \beta\cos{\vartheta})^2  +  (\alpha\sin{\theta} + \beta\sin{\vartheta})^2}$
+        Lo cual, luego de simplificarse, se convierte en
+        $r = \sqrt{\alpha^2+\beta^2 + 2\alpha\beta\cos(\theta-\vartheta)}$
+
+
+</body>
