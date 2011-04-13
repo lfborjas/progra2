@@ -1,4 +1,4 @@
-import polares.Complejo;
+import rectangulares.Complejo;
 
 public class PruebaComplejos{
     
@@ -11,12 +11,11 @@ public class PruebaComplejos{
     public static void main (String [] args)
     {
         Complejo a, b;
-        a = Complejo.crearRectangular(-3.5, 2);
-        b = Complejo.crearRectangular(1, 1);
+        a = Complejo.desdeRectangular(-3.5, 2);
+        b = Complejo.desdeRectangular(1, 1);
 
         asegurar(a.getReal() == -3.5, "La parte real de a no coincide");
         asegurar(b.getReal() ==  1.0, "La parte real de b no coincide");
-
         asegurar(a.getImag() ==  2.0, "La parte imaginaria de a no coincide");
         asegurar(b.getImag() ==  1.0, "La parte imaginaria de b no coincide");
 

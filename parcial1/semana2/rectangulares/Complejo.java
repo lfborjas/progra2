@@ -37,21 +37,7 @@ public class Complejo{
         return imag;
     }
 
-    public double getMagnitud(){
-        return Math.sqrt(Math.pow(real,2)+Math.pow(imag,2));
-    }
-
-    public double getAngulo(){
-        return Math.atan2(imag, real);
-    }
-
-    public static Complejo crearRectangular(double real, double imag){
-        return new Complejo(real, imag);
-    }
-
-    public static Complejo crearPolar(double mag, double ang){
-        double real = mag*Math.cos(ang);
-        double imag = mag*Math.sin(ang);
-        return new Complejo(real, imag);
+    public static Complejo desdeRectangular(double r, double im){
+        return new Complejo(r, im);
     }
 }
