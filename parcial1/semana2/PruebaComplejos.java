@@ -11,8 +11,8 @@ public class PruebaComplejos{
     public static void main (String [] args)
     {
         Complejo a, b;
-        a = new Complejo(-3.5, 2);
-        b = new Complejo(1, 1);
+        a = Complejo.crearRectangular(-3.5, 2);
+        b = Complejo.crearRectangular(1, 1);
 
         asegurar(a.getReal() == -3.5, "La parte real de a no coincide");
         asegurar(b.getReal() ==  1.0, "La parte real de b no coincide");

@@ -47,7 +47,7 @@ public class Complejo{
     }
 
     public static Complejo crearRectangular(double real, double imag){
-        return new Complejo(Math.sqrt(Math.pow(real,2)+Math.pow(real,2)),
+        return new Complejo(Math.sqrt(Math.pow(real,2)+Math.pow(imag,2)),
                 Math.atan2(imag,real)
                 );
     }
