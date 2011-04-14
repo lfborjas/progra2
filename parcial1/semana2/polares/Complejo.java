@@ -51,4 +51,6 @@ public class Complejo{
         return new Complejo(nuevaMagnitud,  nuevoAngulo);
     }
 
+    //TAREA: hacer la resta y la división
+
 } 
