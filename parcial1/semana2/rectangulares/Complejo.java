@@ -28,6 +28,7 @@ public class Complejo{
         return new Complejo(a*c-b*d, a*d+b*c);
     }
 
+    //TAREA: división y resta 
 
     public double getReal(){
         return real;
@@ -37,7 +38,12 @@ public class Complejo{
         return imag;
     }
 
+    public void setReal(double nuevoReal){
+        this.real = nuevoReal;
+    }
+    //TAREA: mutador de la parte imaginaria
     public static Complejo desdeRectangular(double r, double im){
         return new Complejo(r, im);
     }
+
 }
