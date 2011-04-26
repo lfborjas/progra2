@@ -16,7 +16,7 @@
          $('#headar').prepend(console1);
          var controller1 = console1.console({
            promptLabel: 'Choose your attack> ',
-           welcomeMessage: "Welcome to Dwemthy's Array: deep in this array, a Dragon is going to kill you, or is it?\n\n Fight it's minions and obtain new weapons in your quest!\n\n Type 'start' to begin!",
+           welcomeMessage: "Welcome to Dwemthy's Array: deep in this array, a Dragon is going to kill you, or is it?\n\n Fight its minions and obtain new weapons in your quest!\n\n Type 'start' to begin!",
            commandValidate:function(line){
              command = line.trim(); 
              if (!started && command != "start" && !hero.weapons.hasOwnProperty(command)) return false;
