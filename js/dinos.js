@@ -64,7 +64,10 @@
 
 Array.prototype.remove = function(element){
     if((id = this.indexOf(element)) != -1)
-        this.splice(id, 1);
+        if(this.length == 1)
+            this.shift();
+        else
+            this.splice(id, 1);
 }
 
 
