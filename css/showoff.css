@@ -1,10 +1,11 @@
 @media screen {
   body {
-      font-family: "Gill Sans", Helvetica, Arial, sans-serif;
       background:#333;
       overflow:hidden;
       margin:0;
       padding:0;
+      color: #444;
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   }
 
   #preso, .slide {
@@ -179,6 +180,19 @@ pre { margin-left: 40px; font-size: 2.8em; }
     border-right: 2px solid #8b8;
     padding-right: 4px;
     font-weight: bold;
+}
+
+h2, h3 {
+    border-bottom: 1px dotted #555;
+}
+
+em{
+    background-color: #FFF666;
+}
+
+a{
+    color: #06F;
+    text-decoration: none;
 }
 
 .fg-menu-container {

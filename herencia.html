@@ -1,0 +1,347 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Herencia en Java</title>
+
+  <link rel="stylesheet" href="./css/reset.css" type="text/css"/>
+  <link rel="stylesheet" href="./css/showoff.css" type="text/css"/>
+  <link rel="stylesheet" href="./css/syntax/emacs.css" type="text/css"/>
+
+  <script type="text/javascript" src="./js/jquery-1.4.2.min.js"></script>
+  <script type="text/javascript" src="./js/jquery.cycle.all.js"></script>
+	<script type="text/javascript" src="./js/jquery-print.js"></script>
+  <script type="text/javascript" src="./js/jquery.batchImageLoad.js"></script>
+
+  <script type="text/javascript" src="./js/jquery.doubletap-0.1.js"></script>
+
+  <script type="text/javascript" src="./js/fg.menu.js"></script>
+  <script type="text/javascript" src="./js/showoff.js"></script>
+  <script type="text/javascript" src="./js/jTypeWriter.js"> </script>
+  <script type="text/javascript" src="./js/core.js"></script>
+  <script type="text/javascript" src="./js/showoffcore.js"></script>
+
+  <link type="text/css" href="./css/fg.menu.css" media="screen" rel="stylesheet" />
+  <link type="text/css" href="./css/theme/ui.all.css" media="screen" rel="stylesheet" />
+
+  
+
+  
+
+  <script type="text/javascript">
+  $(function(){
+    setupPreso(false, './');
+  });
+  </script>
+</head>
+
+<body>
+
+
+<a tabindex="0" href="#search-engines" class="fg-button fg-button-icon-right ui-widget ui-state-default ui-corner-all" id="navmenu"><span class="ui-icon ui-icon-triangle-1-s"></span>slides</a>
+<div id="navigation" class="hidden"></div>
+
+<div id="help">
+  <table>
+    <tr><td class="key">space, &rarr;</td><td>next slide</td></tr>
+    <tr><td class="key">&larr;</td><td>previous slide</td></tr>
+    <tr><td class="key">d</td><td>debug mode</td></tr>
+    <tr><td class="key">## &lt;ret&gt;</td><td>go to slide #</td></tr>
+    <tr><td class="key">c</td><td>table of contents (vi)</td></tr>
+    <tr><td class="key">f</td><td>toggle footer</td></tr>
+    <tr><td class="key">r</td><td>reload slides</td></tr>
+    <tr><td class="key">z</td><td>toggle help (this)</td></tr>
+  </table>
+</div>
+
+<div class="buttonNav">
+  <input type="submit" onClick="prevStep();" value="prev"/>
+  <input type="submit" onClick="nextStep();" value="next"/>
+</div>
+
+<div id="preso">loading presentation...</div>
+<div id="footer">
+  <span id="slideInfo"></span>
+  <span id="debugInfo"></span>
+</div>
+
+<div id="slides" class="offscreen" style="display:none;">
+<div class="slide" data-transition="none"><div class="content" ref="herencia/01_slide/1">
+<h1>Herencia</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="herencia/01_slide/2">
+<h1>&#xBF;Qu&#xE9; es herencia?</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="herencia/01_slide/3">
+<h1>Herencia biol&#xF3;gica</h1>
+
+<ul>
+<li>Se adquieren <em>rasgos</em> de los padres</li>
+<li>Pero los hijos son ligeramente diferentes</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content code small" ref="herencia/01_slide/4">
+<pre><span class="kd">class</span> <span class="nc">Enemigo</span><span class="o">{</span>
+    <span class="kt">double</span> <span class="n">vida</span><span class="o">;</span>
+    <span class="kt">double</span> <span class="n">suerte</span><span class="o">;</span>
+    <span class="n">Arma</span> <span class="n">arma</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">recibirAtaque</span><span class="o">(</span><span class="kt">double</span> <span class="n">damage</span><span class="o">){</span>
+        <span class="kt">double</span> <span class="n">hit</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">vida</span> <span class="o">-</span> <span class="n">damage</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">vida</span> <span class="o">-=</span> <span class="n">hit</span><span class="o">;</span>
+        <span class="k">return</span> <span class="n">hit</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">atacar</span><span class="o">(</span><span class="n">Heroe</span> <span class="n">h</span><span class="o">,</span> <span class="n">Arma</span> <span class="n">a</span><span class="o">){</span>
+        <span class="k">return</span> <span class="n">h</span><span class="o">.</span><span class="na">recibirAtaque</span><span class="o">(</span><span class="n">a</span><span class="o">.</span><span class="na">getFuerza</span><span class="o">());</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">atacar</span><span class="o">(</span><span class="n">Heroe</span> <span class="n">h</span><span class="o">){</span>
+        <span class="k">return</span> <span class="nf">atacar</span><span class="o">(</span><span class="n">h</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">arma</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content code small" ref="herencia/01_slide/5">
+<pre><span class="kd">class</span> <span class="nc">Heroe</span><span class="o">{</span>
+    <span class="kt">double</span> <span class="n">vida</span><span class="o">;</span>
+    <span class="kt">double</span> <span class="n">suerte</span><span class="o">;</span>
+    <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Arma</span><span class="o">&gt;</span> <span class="n">armas</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">recibirAtaque</span><span class="o">(</span><span class="kt">double</span> <span class="n">damage</span><span class="o">){</span>
+        <span class="kt">double</span> <span class="n">hit</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">vida</span> <span class="o">-</span> <span class="n">damage</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">vida</span> <span class="o">-=</span> <span class="n">hit</span><span class="o">;</span>
+        <span class="k">return</span> <span class="n">hit</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">atacar</span><span class="o">(</span><span class="n">Enemigo</span> <span class="n">e</span><span class="o">,</span> <span class="n">Arma</span> <span class="n">a</span><span class="o">){</span>
+        <span class="k">return</span> <span class="n">e</span><span class="o">.</span><span class="na">recibirAtaque</span><span class="o">(</span><span class="n">a</span><span class="o">.</span><span class="na">getFuerza</span><span class="o">());</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">agregarArma</span><span class="o">(</span><span class="n">Arma</span> <span class="n">a</span><span class="o">){</span>
+        <span class="n">armas</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">a</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content code small" ref="herencia/01_slide/6">
+<pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">...</span> <span class="n">args</span><span class="o">){</span>
+        <span class="n">Heroe</span> <span class="n">elHeroe</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Heroe</span><span class="o">();</span>
+        <span class="n">Enemigo</span> <span class="n">elEnemigo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Enemigo</span><span class="o">();</span>
+
+        <span class="n">elEnemigo</span><span class="o">.</span><span class="na">atacar</span><span class="o">(</span><span class="n">elHeroe</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="herencia/01_slide/7">
+<h2>Copiar y pegar es un pecado capital</h2>
+
+<ul>
+<li>&#xBF;Qu&#xE9; tienen en com&#xFA;n las clases?</li>
+<li>&#xBF;Nos estamos repitiendo a nosotros mismos?</li>
+<li>&#xBF;Qu&#xE9; pasar&#xED;a si decidimos que ambas clases ahora <code>recibenAtaque</code> de otra forma?</li>
+<li><strong>Siempre que te est&#xE9;s repitiendo, record&#xE1;: repetirse est&#xE1; mal, siempre hay soluci&#xF3;n</strong></li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="herencia/01_slide/8">
+<h1>Herencia al rescate</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content code small" ref="herencia/01_slide/9">
+<pre><span class="kd">class</span> <span class="nc">Personaje</span><span class="o">{</span>
+    <span class="kt">double</span> <span class="n">vida</span><span class="o">;</span>
+    <span class="kt">double</span> <span class="n">suerte</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">recibirAtaque</span><span class="o">(</span><span class="kt">double</span> <span class="n">damage</span><span class="o">){</span>
+        <span class="kt">double</span> <span class="n">hit</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">vida</span> <span class="o">-</span> <span class="n">damage</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">vida</span> <span class="o">-=</span> <span class="n">hit</span><span class="o">;</span>
+        <span class="k">return</span> <span class="n">hit</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">atacar</span><span class="o">(</span><span class="n">Personaje</span> <span class="n">p</span><span class="o">,</span> <span class="n">Arma</span> <span class="n">a</span><span class="o">){</span>
+        <span class="k">return</span> <span class="n">p</span><span class="o">.</span><span class="na">recibirAtaque</span><span class="o">(</span><span class="n">a</span><span class="o">.</span><span class="na">getFuerza</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content code small" ref="herencia/01_slide/10">
+<pre><span class="kd">class</span> <span class="nc">Enemigo</span> <span class="kd">extends</span> <span class="n">Personaje</span><span class="o">{</span>
+    <span class="n">Arma</span> <span class="n">a</span><span class="o">;</span> 
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">atacar</span><span class="o">(</span><span class="n">Personaje</span> <span class="n">h</span><span class="o">){</span>
+        <span class="k">return</span> <span class="nf">atacar</span><span class="o">(</span><span class="n">h</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">arma</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content code small" ref="herencia/01_slide/11">
+<pre><span class="kd">class</span> <span class="nc">Heroe</span><span class="o">{</span>
+    <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Arma</span><span class="o">&gt;</span> <span class="n">armas</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">agregarArma</span><span class="o">(</span><span class="n">Arma</span> <span class="n">a</span><span class="o">){</span>
+        <span class="n">armas</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">a</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smbullets incremental" ref="herencia/01_slide/12">
+<h2>&#xBF;C&#xF3;mo funciona la herencia?</h2>
+
+<ul>
+<li>La palabra clave <em>extends</em> declara relaci&#xF3;n de subclase</li>
+<li>"Enemigo <em>es un</em> Personaje"</li>
+<li>&#xBF;Qu&#xE9; se hereda? M&#xE9;todos de instancia y propiedades <em>p&#xFA;blicos</em>.</li>
+<li><strong>Los constructores NO se heredan</strong></li>
+<li><strong>Miembros (propiedades o m&#xE9;todos) <em>privados</em> no ser&#xE1;n heredados</strong></li>
+<li>&#xBF;Y qu&#xE9; pasa con el encapsulamiento? <em>protected</em></li>
+<li>Una clase s&#xF3;lo puede tener <em>un</em> ancestro pero <em>muchos</em> hijos</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content code small" ref="herencia/01_slide/13">
+<pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">...</span> <span class="n">args</span><span class="o">){</span>
+        <span class="n">Personaje</span> <span class="n">elHeroe</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Heroe</span><span class="o">();</span>
+        <span class="n">Personaje</span> <span class="n">elEnemigo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Enemigo</span><span class="o">();</span>
+
+        <span class="n">elEnemigo</span><span class="o">.</span><span class="na">atacar</span><span class="o">(</span><span class="n">elHeroe</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets incremental" ref="herencia/01_slide/14">
+<ul>
+<li>elHeroe y elEnemigo <em>son</em> Personajes</li>
+<li>Pod&#xE9;s decir que su <em>tipo de compilaci&#xF3;n</em> es <code>Personaje</code></li>
+<li>Pero construirlos con su verdadero tipo (<em>de ejecuci&#xF3;n</em>)</li>
+<li>"casting" e <code>instanceof</code></li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content code small" ref="herencia/01_slide/15">
+<pre><span class="kd">class</span> <span class="nc">Personaje</span><span class="o">{</span>
+    <span class="kd">protected</span> <span class="kt">double</span> <span class="n">vida</span><span class="o">;</span>
+    <span class="kd">protected</span> <span class="kt">double</span> <span class="n">suerte</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nf">Personaje</span><span class="o">(</span><span class="kt">double</span> <span class="n">v</span><span class="o">,</span> <span class="kt">double</span> <span class="n">s</span><span class="o">){</span>
+        <span class="n">vida</span> <span class="o">=</span> <span class="n">v</span><span class="o">;</span>
+        <span class="n">suerte</span> <span class="o">=</span> <span class="n">s</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">recibirAtaque</span><span class="o">(</span><span class="kt">double</span> <span class="n">damage</span><span class="o">){</span>
+        <span class="kt">double</span> <span class="n">hit</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">vida</span> <span class="o">-</span> <span class="n">damage</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">vida</span> <span class="o">-=</span> <span class="n">hit</span><span class="o">;</span>
+        <span class="k">return</span> <span class="n">hit</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">atacar</span><span class="o">(</span><span class="n">Personaje</span> <span class="n">p</span><span class="o">,</span> <span class="n">Arma</span> <span class="n">a</span><span class="o">){</span>
+        <span class="k">return</span> <span class="n">p</span><span class="o">.</span><span class="na">recibirAtaque</span><span class="o">(</span><span class="n">a</span><span class="o">.</span><span class="na">getFuerza</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content code small" ref="herencia/01_slide/16">
+<pre><span class="kd">class</span> <span class="nc">Enemigo</span> <span class="kd">extends</span> <span class="n">Personaje</span><span class="o">{</span>
+    <span class="n">Arma</span> <span class="n">a</span><span class="o">;</span> 
+    <span class="n">String</span> <span class="n">nombre</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nf">Enemigo</span><span class="o">(</span><span class="kt">double</span> <span class="n">vida</span><span class="o">,</span> <span class="kt">double</span> <span class="n">suerte</span><span class="o">,</span> <span class="n">String</span> <span class="n">n</span><span class="o">){</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">vida</span><span class="o">,</span> <span class="n">suerte</span><span class="o">);</span>
+        <span class="n">nombre</span> <span class="o">=</span> <span class="n">n</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">atacar</span><span class="o">(</span><span class="n">Personaje</span> <span class="n">h</span><span class="o">){</span>
+        <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">atacar</span><span class="o">(</span><span class="n">h</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">arma</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="herencia/01_slide/17">
+<h2>La palabra clave <code>super</code></h2>
+
+<ul>
+<li>La primera l&#xED;nea de un constructor <em>siempre</em> deber&#xED;a llamar al de la s&#xFA;per-clase</li>
+<li><code>super</code> se refiere a la parte de esta clase que es de la s&#xFA;per-clase.</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content code small" ref="herencia/01_slide/18">
+<pre><span class="kd">class</span> <span class="nc">Heroe</span><span class="o">{</span>
+    <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Arma</span><span class="o">&gt;</span> <span class="n">armas</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">agregarArma</span><span class="o">(</span><span class="n">Arma</span> <span class="n">a</span><span class="o">){</span>
+        <span class="n">armas</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">a</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">recibirAtaque</span><span class="o">(</span><span class="kt">double</span> <span class="n">damage</span><span class="o">){</span>
+        <span class="n">damage</span> <span class="o">-=</span> <span class="k">this</span><span class="o">.</span><span class="na">suerte</span><span class="o">*</span><span class="mf">0.01</span><span class="o">;</span>
+        <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">recibirAtaque</span><span class="o">(</span><span class="n">damage</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets incremental" ref="herencia/01_slide/19">
+<h2>&#xBF;Qu&#xE9; pasa cuando "redefin&#xED;s" algo?</h2>
+
+<ul>
+<li>Entra en juego el <em>polimorfismo</em>:</li>
+<li>Cuando llam&#xE1;s un m&#xE9;todo, mira si est&#xE1; en el <em>tipo de ejecuci&#xF3;n</em></li>
+<li>Si <em>no</em> est&#xE1;, busca su definici&#xF3;n en el <em>antecesor</em> (s&#xFA;per-clase)</li>
+<li>La clase <code>Object</code></li>
+<li>"Override" (&#xBF;record&#xE1;s la anotaci&#xF3;n <code>@Override</code>?)</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content code" ref="herencia/01_slide/20">
+<pre><span class="kd">class</span> <span class="nc">Enemigo</span><span class="o">{</span>
+    <span class="kt">double</span> <span class="n">vida</span><span class="o">;</span>
+    <span class="c1">//...</span>
+<span class="o">}</span>
+</pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="herencia/01_slide/21">
+<ul>
+<li>Miembros est&#xE1;ticos y propiedades <em>no funcionan con polimorfismo</em></li>
+<li>&#xBF;Y si hay algo que no quer&#xE9;s que se redefina?</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content code small" ref="herencia/01_slide/22">
+<pre><span class="kd">class</span> <span class="nc">Personaje</span><span class="o">{</span>
+    <span class="kd">protected</span> <span class="kd">final</span> <span class="kt">double</span> <span class="n">vida</span><span class="o">;</span>
+    <span class="c1">//...</span>
+<span class="o">}</span>
+<span class="kd">class</span> <span class="nc">Enemigo</span><span class="o">{</span>
+    <span class="kt">double</span> <span class="n">vida</span><span class="o">;</span> <span class="c1">//ERROR!</span>
+    <span class="c1">//...</span>
+<span class="o">}</span>
+</pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content code" ref="herencia/01_slide/23">
+<pre><span class="kd">class</span> <span class="nc">Enemigo</span><span class="o">{</span><span class="cm">/*...*/</span><span class="o">}</span>
+<span class="kd">class</span> <span class="nc">EnemigoTerrestre</span> <span class="kd">extends</span> <span class="n">Enemigo</span><span class="o">{</span><span class="cm">/*...*/</span><span class="o">}</span>
+</pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="herencia/01_slide/24">
+<ul>
+<li>Una jerarqu&#xED;a puede ser tan profunda como quer&#xE1;s</li>
+<li>Pero si quer&#xE9;s que una clase no tenga hijos...</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content code small" ref="herencia/01_slide/25">
+<pre><span class="kd">final</span> <span class="kd">class</span> <span class="nc">Enemigo</span><span class="o">{</span><span class="cm">/*...*/</span><span class="o">}</span>
+<span class="kd">class</span> <span class="nc">EnemigoTerrestre</span> <span class="kd">extends</span> <span class="n">Enemigo</span><span class="o">{</span><span class="cm">/*ERROR!!!*/</span><span class="o">}</span>
+</pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="herencia/01_slide/26">
+<h2>Referencias</h2>
+
+<ul>
+<li><a href="http://download.oracle.com/javase/tutorial/java/IandI/subclasses.html">Tutorial oficial de java</a></li>
+<li><a href="http://home.cogeco.ca/~ve3ll/jatutor5.htm">Otro tutorial</a></li>
+<li><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-092-introduction-to-programming-in-java-january-iap-2010/lecture-notes/">Introducci&#xF3;n a java en MIT</a></li>
+<li><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-092-java-preparation-for-6-170-january-iap-2006/lecture-notes/">Curso avanzado de java (MIT)</a></li>
+<li><a href="http://introcs.cs.princeton.edu/36inheritance/">Curso de java en Princeton</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+
+</body>
+</html>
