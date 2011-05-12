@@ -1,13 +1,22 @@
+import java.util.ArrayList;
+import java.util.Collections;
+
 public class PruebaMagnitud{
     public static void main (String [] args)
     {
-      ConMagnitud[] lista = new ConMagnitud[4]; 
-      lista[0] = new ComplejoRectangular(1,1);
-      lista[1] = new Vector(1,2,3);
-      lista[2] = new Vector(2,3,4,5);
-      lista[3] = new ComplejoPolar(0.5, 0.41);
+      ArrayList<ConMagnitud> lista = new ArrayList<ConMagnitud>(); 
+      lista.add(new ComplejoRectangular(1,1));
+      lista.add(new Vector(1,2,3));
+      lista.add(new Vector(2,3,4,5));
+      lista.add(new ComplejoPolar(0.5, 0.41));
 
       for(ConMagnitud obj: lista)
-          System.out.println(obj.getMagnitud());
+          System.out.printf("La magnitud de %s es %s\n", obj.toString(), obj.getMagnitud());
+
+      Collections.sort(lista);
+
+      System.out.println("Después de ordenarla:");
+      for(ConMagnitud obj: lista)
+          System.out.printf("La magnitud de %s es %s\n", obj.toString(), obj.getMagnitud());
     }
 } 

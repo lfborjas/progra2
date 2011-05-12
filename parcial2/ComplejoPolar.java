@@ -1,4 +1,4 @@
-public class ComplejoPolar implements Complejo, ConMagnitud{
+public class ComplejoPolar extends ComparaMagnitud implements Complejo{
     double magnitud, angulo;
 
     public ComplejoPolar(double mag, double ang){
