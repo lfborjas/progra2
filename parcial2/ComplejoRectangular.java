@@ -1,4 +1,4 @@
-public class ComplejoRectangular implements Complejo{
+public class ComplejoRectangular implements Complejo, ConMagnitud{
     private double real, imag;
 
     public ComplejoRectangular(double r, double i){
